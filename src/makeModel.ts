@@ -1,4 +1,4 @@
-export function makeModel(Model, attributes) {
+export function makeModel(Model, attributes, initModel: (Model: any) => any = (Model) => new Model()) {
 
     if (!attributes)
         return attributes;
@@ -12,7 +12,7 @@ export function makeModel(Model, attributes) {
         }
         return array;
     } else {
-        let model = new Model();
+        let model = initModel(Model);
         for (let key in  attributes) {
             if (propTypes && propTypes[key]) {
                 model[key] = makeModel(propTypes[key], attributes[key]);

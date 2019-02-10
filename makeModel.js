@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function makeModel(Model, attributes) {
+function makeModel(Model, attributes, initModel) {
+    if (initModel === void 0) { initModel = function (Model) { return new Model(); }; }
     if (!attributes)
         return attributes;
     var propTypes = Model.propTypes;
@@ -12,7 +13,7 @@ function makeModel(Model, attributes) {
         return array;
     }
     else {
-        var model = new Model();
+        var model = initModel(Model);
         for (var key in attributes) {
             if (propTypes && propTypes[key]) {
                 model[key] = makeModel(propTypes[key], attributes[key]);
