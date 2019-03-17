@@ -2,8 +2,8 @@
   "name": "@crud/model",
   "version": "1.0.0",
   "dependencies": {
-    "@crud/core": "^1.0.*",
-    "reflect-metadata": "^0.1.*"
+    "@crud/core": "2.0.*",
+    "reflect-metadata": "0.1.*"
   },
   "devDependencies": {
     "ts-loader": "^5.3.3",
